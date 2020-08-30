@@ -1,0 +1,28 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3lPVEF6TVRZd05sb1hEVE13TURneU56QXpNVFl3Tmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT08zCnNGa0h6aTZKUUhDQjVTbjFFem80TFNSUGxQTkhOYUNSWUJLd3k5R2xCVGNqcGVwV1NqYnlJWElsL0hVUHR2dnMKcDRPV3BlbEMraHdCNWZCTkJuUFdoaUlUWTZacVI3NWtDclg1anJ1THc1MytpYVJ1Y0Z3M3ZMWW1pcFhqejJSMApoVGJqTG5QT3ZpMkZCcXdQYmd1TDloVnFlR2hJZFlhOFVkRGdnRTc0Q21OOGlxTWtSQ3gwSXN3S0RLRS83K0dsCm1xUWJ0SUJSMzg3VW1CeHJZQjFVUUoraGZmZEJHRVV0TFJXRFFDTjRtK3M3clpqRnNpL09ZZEdYWE0vZHl1aUMKUVdqNkdhSmQ2Y0gvSmwwblFsTkFNdEVvRkhmcHo3RlFGQkMyeUZxaURjYjNGV0xPSG9icEUwdzBVTSt4enRSZApQQ0Z5Y0Q0ekQ4aEY4RmVDRlJrQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFEU045WVB1WEQ4UzNkbkN4YWJza2ZWSFZpd1IKa2M2eEVKTkJMekJoRDdNcXdJRlhoWXZtUzRhSmptemJ4ajlRMXdzRStKY25XbVJpd2Y5NjNuQjFHV0RURVFCYwpvYlgwQ3ZiaEhWNlVGcE16WkZHUlVWanpLc1p6L05QWmhseWUzYzNiN05RdXkvdHZCVW9HMkJzMUU5bWoxSUFqCjhDOWExYmxoQXRtMjNkTzVXZkc5Uzh3U0JyWW1xMW1zVHR5NGZsUktQOGVaUUtVUURkcTlDY3hYdGdlcE5JTDAKMCtJTDd2Q0JqZmtGd0tmMFRuRWdTM2l1K1ExSUVCaE9yN0gzOEtQNGNjVzRFVVFjV3FhSDZhRXhCMUl1Sm9GNApSanRrVElybVl2czQwcGNzZFA3RXJhTkMyRHhvZ3VZbVByK203YzBXYjR2VDZxK0NaWktSbGlYekNBYz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://198EB5D721E43FD4102F31BFBABE2F81.gr7.us-east-2.eks.amazonaws.com
+  name: arn:aws:eks:us-east-2:526752241372:cluster/dev-syntonic
+contexts:
+- context:
+    cluster: arn:aws:eks:us-east-2:526752241372:cluster/dev-syntonic
+    user: arn:aws:eks:us-east-2:526752241372:cluster/dev-syntonic
+  name: arn:aws:eks:us-east-2:526752241372:cluster/dev-syntonic
+current-context: arn:aws:eks:us-east-2:526752241372:cluster/dev-syntonic
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:us-east-2:526752241372:cluster/dev-syntonic
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-2
+      - eks
+      - get-token
+      - --cluster-name
+      - dev-syntonic
+      command: aws
+      env: null
