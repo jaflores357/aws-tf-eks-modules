@@ -11,19 +11,19 @@ unzip terraform_*.zip
 sudo mv terraform /usr/local/bin/
 ```
 
-1.1 Create Dev workspace
+1.1. Create Dev workspace
 
 ```shell
 terraform workspace new dev
 ```
 
-1.2 Download dependencies
+1.2. Download dependencies
 
 ```shell
 terraform init
 ```
 
-1.3 Plan and apply 
+1.3. Plan and apply 
 
 ```shell
 terraform plan -out eks.terraform
@@ -32,7 +32,7 @@ terraform apply eks.terraform
 
 2. Configure kubectl
 
-2.1 Install
+2.1. Install
 
 ```shell 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/linux/amd64/kubectl
@@ -40,7 +40,7 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
 
-2.2 Setup credentials
+2.2. Setup credentials
 
 ```shell
 aws eks --region us-east-2 update-kubeconfig --name dev-southsystem
