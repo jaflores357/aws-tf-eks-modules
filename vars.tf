@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "cluster-name" {
-  default = "syntonic"
+  default = "southsystem"
   type    = string
 }
 
