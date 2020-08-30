@@ -140,7 +140,7 @@ repo: https://github.com/jaflores357/sample-k8s-app.git
 
 ### Get job external address
 
-After successful deploy job get external address
+After successful deployment get external address
 
 ```bash
 kubectl get ingress 2048-ingress -o jsonpath="{.status.loadBalancer.ingress[0].hostname}"
