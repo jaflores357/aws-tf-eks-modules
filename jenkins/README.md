@@ -32,6 +32,7 @@ kubectl get svc cicd-jenkins -o jsonpath="{.status.loadBalancer.ingress[0].hostn
 ### Get Jenkins login credentials
 
 username: admin
+
 password:
 ```bash
 printf $(kubectl get secret --namespace default cicd-jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
@@ -123,19 +124,19 @@ EOF
 
 ## Create kubeconfig credential type
 
-![alt text](https://github.com/jaflores357/aws-tf-eks-modules/raw/master/src/jenkins/jenkins-kubeconfig-credentials.png "Jenkins kubeconfig Credentials")
+![alt text](https://github.com/jaflores357/aws-tf-eks-modules/blob/master/jenkins/jenkins-kubeconfig-credentials.png?raw=true "Jenkins kubeconfig Credentials")
 
 ID: jenkins-kubeconfig
 
 ## Create sample pipeline Job
 
-![alt text](https://github.com/jaflores357/aws-tf-eks-modules/raw/master/src/jenkins/job-pipeline.png "Job Pipeline")
+![alt text](https://github.com/jaflores357/aws-tf-eks-modules/blob/master/jenkins/job-pipeline.png?raw=true "Job Pipeline")
 
 ### Configure Job
 
 repo: https://github.com/jaflores357/sample-k8s-app.git
 
-![alt text](https://github.com/jaflores357/aws-tf-eks-modules/raw/master/src/jenkins/configure-job.png "Configure Job")
+![alt text](https://github.com/jaflores357/aws-tf-eks-modules/blob/master/jenkins/configure-job.png?raw=true "Configure Job")
 
 ### Get job external address
 
