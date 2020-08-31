@@ -77,7 +77,7 @@ module "external_dns_aws" {
   version = "0.9.0"
 
   domains = [
-    "brazil.syntonic.com"
+    "domain.com"
   ]
 
   sources = [
