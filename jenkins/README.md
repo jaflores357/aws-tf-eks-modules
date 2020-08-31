@@ -138,6 +138,60 @@ repo: https://github.com/jaflores357/sample-k8s-app.git
 
 ![alt text](https://github.com/jaflores357/aws-tf-eks-modules/blob/master/jenkins/configure-job.png?raw=true "Configure Job")
 
+#### Jobs Jenkinffile
+
+```js
+pipeline {
+    agent any
+    environment {
+        KUBECONFIG = 'jenkins-kubeconfig'
+        ENDPOINT = " "
+    }
+    stages {
+        stage("Checkout code") {
+            steps {
+                checkout scm
+            }
+        }
+        stage("Build image") {
+            steps{
+                sh "echo 'Build image'"
+            }    
+        }
+        stage("Push image") {
+            steps{
+                sh "echo 'Push image'"
+            }    
+        }       
+        stage('Deploy to EKS dev cluster') {
+            steps{
+                script {
+                    kubernetesDeploy(configs: "**/k8s/*", kubeconfigId: env.KUBECONFIG)
+                }
+            }
+        }
+
+        //stage('Deploy to EKS production cluster') {
+        //   steps{
+        //        input message:"Proceed with final deployment?"
+        //        script {
+        //            kubernetesDeploy(configs: "**/k8s/*", kubeconfigId: env.KUBECONFIG)
+        //        }
+        //
+        //        
+        //    }
+        //}   
+
+        stage('Test endpoint') {
+            steps{
+                sh "chmod +x ./check-endpoint.sh"
+                sh "./check-endpoint.sh ${ENDPOINT}"
+            }
+        }
+    }    
+}
+```
+
 ### Get job external address
 
 After successful deployment get external address
