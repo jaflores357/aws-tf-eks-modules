@@ -60,7 +60,7 @@ module "cluster_autoscaler_aws" {
   source = "cookielab/cluster-autoscaler-aws/kubernetes"
   version = "0.9.0"
 
-  aws_iam_role_for_policy = module.eks.worker_iam_role_name
+  aws_iam_role_for_policy = local.workers_role_name
 
   asg_tags = [
     "k8s.io/cluster-autoscaler/enabled",
@@ -72,18 +72,49 @@ module "cluster_autoscaler_aws" {
 
 }
 
-# resource "helm_release" "mydatabase" {
-#   name  = "mydatabase"
-#   chart = "stable/mariadb"
+module "external_dns_aws" {
+  source = "cookielab/external-dns-aws/kubernetes"
+  version = "0.9.0"
+
+  domains = [
+    "brazil.syntonic.com"
+  ]
+
+  sources = [
+    "ingress"
+  ]
+
+  owner_id = "kube-clb-main"
+  aws_iam_role_for_policy = local.workers_role_name
+
+  depends_on = [
+      module.eks
+  ]  
+
+}
+
+# resource "helm_release" "jenkins" {
+#   name  = "cicd"
+#   chart = "stable/jenkins"
 
 #   set {
-#     name  = "mariadbUser"
-#     value = "foo"
+#       name  = "rbac.create"
+#       value = "true"
 #   }
 
 #   set {
-#     name  = "mariadbPassword"
-#     value = "qux"
+#       name  = "master.servicePort"
+#       value = "80"
+#   }
+
+#   set {
+#       name  = "master.serviceType"
+#       value = "LoadBalancer"
+#   }
+
+#   set {
+#       name  = "master.additionalPlugins"
+#       value = "{kubernetes-cd:2.3.0}"
 #   }
 
 #   depends_on = [
