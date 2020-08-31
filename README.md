@@ -1,6 +1,6 @@
 # AWS EKS with Terraform
 
-Install EKS and REDIS using terraforma modules, also setup [ALB ingress controller](https://github.com/kubernetes-sigs/aws-alb-ingress-controller) and [cluster autoscaler](https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html)
+Install EKS and REDIS using terraform modules, also setup [ALB ingress controller](https://github.com/kubernetes-sigs/aws-alb-ingress-controller) and [cluster autoscaler](https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html)
 
 ## Install Terraform
 
