@@ -138,7 +138,7 @@ repo: https://github.com/jaflores357/sample-k8s-app.git
 
 ![alt text](https://github.com/jaflores357/aws-tf-eks-modules/blob/master/jenkins/configure-job.png?raw=true "Configure Job")
 
-#### Jobs Jenkinffile
+#### JobsJenkinsfile
 
 ```js
 pipeline {
