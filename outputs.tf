@@ -27,3 +27,11 @@ output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = local.cluster_name
 }
+
+output "redis_address" {
+  description = "Redis endpoint"
+  value       = aws_elasticache_cluster.redis.cache_nodes.0.address
+}
+
+
+
